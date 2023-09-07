@@ -7,6 +7,8 @@ Create an environment from an SHPC-style module file.
 addModuleToSoftpack.sh path_to_module_file module_load_path environment_path
 ```
 
+In addition, the `SOFTPACK_CORE_URL` environmental variable must be set to the graphql endpoint for Softpack Core.
+
 ## Example Usage
 
 ```
