@@ -26,6 +26,12 @@ if [ -z "$modPath" -o ! -f "$modFilePath" -o -z "$envPath" ]; then
 	help;
 fi;
 
+module load "$modPath" &> /dev/null || {
+        echo "Error: module $modPath does not exist." >&2;
+
+        exit 1;
+}
+
 declare graphQL="$(while read line; do echo -n "$line\n";done <<HEREDOC
 mutation (\\\$file: Upload!, \\\$modulePath: String!, \\\$envPath: String!) {
 	createFromModule(
